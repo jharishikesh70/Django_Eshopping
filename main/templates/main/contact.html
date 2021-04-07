@@ -1,0 +1,125 @@
+{% extends 'main/base.html' %}
+{% block main_head %}
+{% load static %}
+
+<style type="text/css">
+	.contact {
+		height: 600px;
+	}
+
+	.col-md-3 {
+		background-image: url("https://i.pinimg.com/474x/98/be/a2/98bea206e0db047b586ef46cf4d2c595.jpg");
+		padding: 4%;
+		height: 600px;
+	}
+
+	.contact-info img {
+		margin-bottom: 15%;
+	}
+
+	.contact-info h2 {
+		margin-bottom: 10%;
+	}
+
+	.col-md-9 {
+		background: #fff;
+		padding: 3%;
+	}
+
+	.contact-form label {
+		font-weight: 600;
+	}
+
+	.contact-form button {
+		background: #231f20;
+		color: #fff;
+		font-weight: 600;
+		width: 25%;
+	}
+
+	.contact-form button:focus {
+		box-shadow: none;
+	}
+
+	.contact-form button:hover {
+		color: #f4f4f4;
+	}
+</style>
+{% endblock main_head %}
+{% block main_body %}
+
+
+<div class="container col-md-12 contact">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="contact-info">
+				<img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+				<h2 class="text-warning">Contact Us</h2>
+				<h4 class="text-warning">
+					<p>
+						“The greenhouse effect I am knowing;
+					</p>
+					<p>
+						To protest right now I am going,
+					</p>
+					<p>
+						But oh my gee whiz,
+					</p>
+					<p>
+						I'm going that is,
+					</p>
+					<p>
+						If only it ever stops snowing.”
+						― Alan Cook
+					</p>
+				</h4>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="container">
+				<img class="float-right" src="https://i.pinimg.com/236x/22/25/ff/2225ff8b41866756fc7d6a6f9213804e--ayurveda-logo-google.jpg" alt="logo" height="120px" width="120px" />
+			</div>
+			{% if messages %}
+			{% for message in messages %}
+			<div class="alert alert-{{message.tags}}">{{ message }}</div>
+			{% endfor %}
+			{% endif %}
+			<form method="post">{% csrf_token %}
+				<div class="contact-form">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="fname">Name:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" placeholder="Enter Name" name="Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email">Email:</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" placeholder="Enter Email" name="Email">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="lname">Subject:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" placeholder="Enter Subject" name="Subject">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="comment">Message:</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="5" name="Message"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-success bg-success"><strong class="text-center text-light ">Submit</strong></button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% include 'main/footer.html' %}
+
+{% endblock main_body %}
