@@ -21,8 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from saler.views import admin2
 
-from django.views.static import serve
-from django.conf.urls import url
+
 
 urlpatterns = [
     path('wrappers/india/my/admin/pannel/home/', admin.site.urls),
@@ -44,8 +43,7 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(template_name='main/password_reset_complete.html'),
          name="password_reset_complete"),
 
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),     
+   
 
 ]
 
