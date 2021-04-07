@@ -25,7 +25,7 @@ SECRET_KEY = 'xef=x208$nm60+ptf%f9u3w@s1z7&xrf+@ghqe8*)98+fkci_e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','Madan Ayurved.com']
+ALLOWED_HOSTS = ['127.0.0.1','madan-ayuraveda.herokuapp.com/']
 
 
 # Application definition
